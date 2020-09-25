@@ -28,7 +28,7 @@ export class MapService {
     /* api method for creating leads*/
     public getMap(param) {
 
-        return this.http.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + param.lat + ',' + param.lng + '&radius=500&types=atm&&key=AIzaSyBepSqGpxHGCUDJvHf_f9dX99Af2Id75zw')
+        return this.http.get('https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + param.lat + ',' + param.lng + '&radius=500&types=atm&&key=AIzaSyBepSqGpxHGCUDJvHf_f9dX99Af2Id75zw')
             .pipe(
             map(response => this.shareStore.apiResp = response));
 
