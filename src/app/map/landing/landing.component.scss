@@ -1,0 +1,20 @@
+$bgcolor: lightblue;
+$textcolor: darkblue;
+$fontsize: 18px;
+.map-container{
+    color:$bgcolor;
+    margin: 0 auto;
+    height: 97vh;
+    width: 100%;
+    img{
+        width: 15%;
+        position: absolute;
+        bottom: 5px;
+        right: 7px;
+        cursor: pointer;
+    }
+}
+
+agm-map {
+    height: 100vh;
+  }

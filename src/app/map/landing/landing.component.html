@@ -1,0 +1,36 @@
+<app-side-menu (outputToParent)="getOutputVal($event)">
+</app-side-menu>
+
+<div class="map-container">
+    <agm-map #gm [latitude]="map.lat" [longitude]="map.lng" [zoom]="18">
+        <!-- <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker> -->
+        <ng-container *ngIf="apiLoaded && !direction">
+            <agm-marker *ngFor="let location of apiLoaded.results" (markerClick)="select_marker(location,infowindow)" [latitude]="location?.geometry?.location?.lat"
+                [longitude]="location?.geometry?.location?.lng">
+                <agm-info-window #infowindow [maxWidth]="320">
+                    <h3 class="mapInfoHead">{{info?.name}}
+                    </h3>
+                    <p>
+                        <img (click)="gotoAtm(location?.geometry?.location)" src="assets/images/direction_icon.png">
+                    </p>
+                    <p class="mapInfotext">{{info?.address}}</p>
+                    <h5 [ngStyle]="{'color':info?.open == true ?  'green' : 'red'}">
+                        <span *ngIf="info?.open">Open</span>
+                        <span *ngIf="!info?.open">Closed</span>
+
+                    </h5>
+                </agm-info-window>
+            </agm-marker>
+        </ng-container>
+        <agm-direction *ngIf="direction" [origin]="origin" [destination]="destination"></agm-direction>
+
+
+
+    </agm-map>
+</div>
+
+<!-- 
+<agm-marker *ngFor="let location of apiLoaded.results" (markerClick)="clickedMarker(companyLocation)" (mouseOver)="hoverOverMarker(companyLocation)"
+(mouseOut)="hoverOutMarker(companyLocation)" [latitude]="companyLocation.latitude" [longitude]="companyLocation.longitude"
+[iconUrl]="{url: setIcon(companyLocation), scaledSize: {width: 55, height: 82.5}}">
+</agm-marker> -->

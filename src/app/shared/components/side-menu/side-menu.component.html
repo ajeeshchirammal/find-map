@@ -1,0 +1,57 @@
+<div class="sideMenuContainer" [ngClass]="{'closeSlide': slideOpen }">
+    <div class="slide-head">
+        <h3>FIND ATM</h3>
+        <ng-container>
+            <div class="slide-icons">
+                <i *ngIf="slideOpen" (click)="sliderSlide(false)" class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                <i *ngIf="!slideOpen" (click)="sliderSlide(true)" class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+            </div>
+        </ng-container>
+    </div>
+
+
+    <ng-container>
+        <div class="filter-container" [ngClass]="{'mobCloseMenu': slideOpen }">
+            <div class="row">
+                <mat-form-field appearance="fill">
+                    <input type="text" placeholder="Search Place" (debounceClick)="getPlace($event)" appDebounceClick [debounceTime]="700" aria-label="Number"
+                        matInput [matAutocomplete]="autoplaces">
+                    <mat-autocomplete #autoplaces="matAutocomplete" (optionSelected)="getLatLong($event)">
+                        <mat-option *ngFor="let place of places; let i = index" [value]="place.description">{{place.description}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="fill">
+                    <mat-label>km</mat-label>
+                    <select matNativeControl required>
+                        <option value="volvo">10km</option>
+                        <option value="saab">20km</option>
+                        <option value="mercedes">30km</option>
+                        <option value="audi">40km</option>
+                    </select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="fill">
+                    <mat-label>availability</mat-label>
+                    <select matNativeControl required>
+                        <option value="volvo">Open</option>
+                        <option value="saab">Closed</option>
+                    </select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <div class="button-container">
+                    <button (click)="refresh()">Refresh</button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </ng-container>
+
+</div>

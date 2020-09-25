@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-form-field{
+    width:100%;
+}
+.row{
+    margin:15px 15px 15px 15px;
+}
+
+
+.gm-style .gm-style-iw {
+    
+        width: 100%;
+        max-width: 284px !important;
+    }
+    .mapInfoHead{
+        color:#005627 !important;
+    }
+    .mapInfotext{
+        color:#000 !important;
+    }
+    
+    @media only screen and (max-width: 767px) {
+        .gm-style .gm-style-iw {
+    
+            width: 100%;
+            max-width: 284px !important;
+        }
+    }
