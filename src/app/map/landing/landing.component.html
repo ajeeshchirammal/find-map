@@ -2,7 +2,7 @@
 </app-side-menu>
 
 <div class="map-container">
-    <agm-map #gm [latitude]="map.lat" [longitude]="map.lng" [zoom]="18">
+    <agm-map #gm [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom">
         <!-- <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker> -->
         <ng-container *ngIf="apiLoaded && !direction">
             <agm-marker *ngFor="let location of apiLoaded.results" (markerClick)="select_marker(location,infowindow)" [latitude]="location?.geometry?.location?.lat"

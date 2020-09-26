@@ -16,8 +16,7 @@
         "urls": [
           "https://cdnjs.cloudflare.com/**",
           "https://fonts.googleapis.com/**",
-          "https://maps.googleapis.com/maps/**",
-          "https://cors-anywhere.herokuapp.com/**"
+          "https://maps.googleapis.com/maps/**"
         ]
       }
     },
@@ -38,7 +37,6 @@
       "name": "restapiexample dummuy API",
       "urls": [
         "https://maps.googleapis.com/maps/api/**",
-        "https://cors-anywhere.herokuapp.com/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",

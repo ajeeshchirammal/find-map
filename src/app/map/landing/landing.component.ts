@@ -15,6 +15,7 @@ export class LandingComponent implements OnInit {
 	infoWindowOpened = null;
 	info: any = {};
 	direction: any = false;
+
 	constructor(public mapService: MapService) { }
 
 

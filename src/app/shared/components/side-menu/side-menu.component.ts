@@ -38,7 +38,8 @@ export class SideMenuComponent implements OnInit {
 				lat: this.lat,
 				lng: this.lng,
 				source: "lat",
-				name: e.option.value
+				name: e.option.value,
+				zoom: 15
 			}
 			this.outputToParent.emit(data);
 
@@ -50,10 +51,10 @@ export class SideMenuComponent implements OnInit {
 			source: "refresh"
 		}
 		this.outputToParent.emit(data);
+		this.init();
 	}
 
-
-	ngOnInit() {
+	init() {
 		if (navigator.geolocation) {
 			var data: any;
 			var thisData = this;
@@ -62,7 +63,8 @@ export class SideMenuComponent implements OnInit {
 				data = {
 					lat: position.coords.latitude,
 					lng: position.coords.longitude,
-					source: "currentLocation"
+					source: "currentLocation",
+					zoom: 15
 				}
 				thisData.outputToParent.emit(data);
 
@@ -70,18 +72,19 @@ export class SideMenuComponent implements OnInit {
 				data = {
 					lat: 12.9116225,
 					lng: 77.6418068,
-					source: "currentLocation"
+					source: "currentLocation",
+					zoom: 15
 				}
-
 
 				thisData.outputToParent.emit(data);
 			});
 		} else {
 			// this.locationTrue = false;
 		}
+	}
+	ngOnInit() {
 
-
-
+		this.init()
 
 	}
 
