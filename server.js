@@ -44,7 +44,7 @@ app.get("/autocomplete", async (req, res) => {
     try {
       let data = await axios
         .get(
-          `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&language=en&key=${key}`
+        `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&language=en&key=${key}`
         )
         .then((response) => response.data);
       return res.send(data);
@@ -60,7 +60,7 @@ app.get("/address", async (req, res) => {
     try {
       let data = await axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${input}&key=${key}`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${input}&key=${key}`
         )
         .then((response) => response.data);
       return res.send(data);
@@ -75,7 +75,7 @@ app.get("/nearbysearch", async (req, res) => {
     try {
       let data = await axios
         .get(
-          `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=1000&types=atm&key=${key}`
+        `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=1000&types=atm&key=${key}`
         )
         .then((response) => response.data);
       return res.send(data);
@@ -91,7 +91,7 @@ app.get("/latlngAddress", async (req, res) => {
     try {
       let data = await axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&sensor=true&key=${key}`
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&sensor=true&key=${key}`
         )
         .then((response) => response.data);
       return res.send(data);
@@ -102,4 +102,4 @@ app.get("/latlngAddress", async (req, res) => {
 });
 
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 4200);
+app.listen(process.env.PORT || 3000);
