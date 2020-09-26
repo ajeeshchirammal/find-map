@@ -29,14 +29,14 @@ export class ShareService {
 
     /* api method for creating leads https://cors-anywhere.herokuapp.com/*/
     public getPlace(param) {
-        return this.http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + param + '&types=geocode&language=fr&key=AIzaSyBepSqGpxHGCUDJvHf_f9dX99Af2Id75zw')
+        return this.http.get('https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + param + '&types=geocode&language=fr&key=AIzaSyBepSqGpxHGCUDJvHf_f9dX99Af2Id75zw')
             .pipe(map(response => this.shareStore.apiResp = response));
     }
 
 
     public getLatLong(param) {
 
-        return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + param + '&key=AIzaSyBepSqGpxHGCUDJvHf_f9dX99Af2Id75zw')
+        return this.http.get('https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?address=' + param + '&key=AIzaSyBepSqGpxHGCUDJvHf_f9dX99Af2Id75zw')
             .pipe(map(response => this.shareStore.apiResp = response));
     }
 

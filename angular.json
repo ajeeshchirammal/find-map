@@ -25,7 +25,6 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/_redirects",
               "src/assets",
               "src/manifest.webmanifest"
             ],
