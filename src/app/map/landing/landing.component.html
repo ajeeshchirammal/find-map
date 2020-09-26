@@ -1,4 +1,4 @@
-<app-side-menu (outputToParent)="getOutputVal($event)">
+<app-side-menu *ngIf="apiLoaded" [configData]="apiLoaded" (outputToParent)="getOutputVal($event)">
 </app-side-menu>
 
 <div class="map-container">

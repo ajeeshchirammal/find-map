@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ShareService } from "../../services/shared-services";
 
 @Component({
@@ -12,7 +12,9 @@ export class SideMenuComponent implements OnInit {
 	places: any;
 	lat: any;
 	lng: any;
+	placeName: any;
 	@Output() outputToParent = new EventEmitter<boolean>();
+	@Input() configData;
 	constructor(public shareService: ShareService) { }
 
 
@@ -35,7 +37,8 @@ export class SideMenuComponent implements OnInit {
 			const data: any = {
 				lat: this.lat,
 				lng: this.lng,
-				source: "lat"
+				source: "lat",
+				name: e.option.value
 			}
 			this.outputToParent.emit(data);
 
@@ -49,12 +52,13 @@ export class SideMenuComponent implements OnInit {
 		this.outputToParent.emit(data);
 	}
 
+
 	ngOnInit() {
 		if (navigator.geolocation) {
 			var data: any;
 			var thisData = this;
 			navigator.geolocation.getCurrentPosition(function (position) {
-
+				console.log(position);
 				data = {
 					lat: position.coords.latitude,
 					lng: position.coords.longitude,
@@ -75,6 +79,7 @@ export class SideMenuComponent implements OnInit {
 		} else {
 			// this.locationTrue = false;
 		}
+
 
 
 

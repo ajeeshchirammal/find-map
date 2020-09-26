@@ -7,11 +7,10 @@ import { MapService } from "../services/map-services"
 	styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
-	apiLoaded: any;
+	apiLoaded: any = [];
 	map: any = {}
 	origin: any = {};
 	destination: any = {};
-
 	previous_info_window = null;
 	infoWindowOpened = null;
 	info: any = {};
@@ -28,6 +27,8 @@ export class LandingComponent implements OnInit {
 				this.map = event;
 				this.mapService.getMap(event).subscribe((response: any) => {
 					this.apiLoaded = response
+					this.apiLoaded["place_name"] = event.name;
+
 				})
 				break;
 			case 'currentLocation':
@@ -36,6 +37,11 @@ export class LandingComponent implements OnInit {
 				this.origin = event;
 				this.mapService.getMap(event).subscribe((response: any) => {
 					this.apiLoaded = response
+					this.mapService.getPlace(event).subscribe((response: any) => {
+						console.log(response.results[5].address_components[0].long_name)
+						this.apiLoaded["place_name"] = response.results[5].address_components[0].long_name;
+
+					})
 				})
 				break;
 			default:

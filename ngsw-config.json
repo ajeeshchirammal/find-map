@@ -12,9 +12,16 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
+        ],
+        "urls": [
+          "https://cdnjs.cloudflare.com/**",
+          "https://fonts.googleapis.com/**",
+          "https://maps.googleapis.com/maps/**",
+          "https://cors-anywhere.herokuapp.com/**"
         ]
       }
-    }, {
+    },
+    {
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
@@ -23,6 +30,21 @@
           "/assets/**",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "restapiexample dummuy API",
+      "urls": [
+        "https://maps.googleapis.com/maps/api/**",
+        "https://cors-anywhere.herokuapp.com/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 20,
+        "maxAge": "12h",
+        "timeout": "5s"
       }
     }
   ]

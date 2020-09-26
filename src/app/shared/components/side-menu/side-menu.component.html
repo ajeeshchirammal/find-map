@@ -14,15 +14,15 @@
         <div class="filter-container" [ngClass]="{'mobCloseMenu': slideOpen }">
             <div class="row">
                 <mat-form-field appearance="fill">
-                    <input type="text" placeholder="Search Place" (debounceClick)="getPlace($event)" appDebounceClick [debounceTime]="700" aria-label="Number"
-                        matInput [matAutocomplete]="autoplaces">
+                    <input type="text" placeholder="Search Place" [(ngModel)]="configData.place_name" (debounceClick)="getPlace($event)" appDebounceClick
+                        [debounceTime]="700" aria-label="Number" matInput [matAutocomplete]="autoplaces">
                     <mat-autocomplete #autoplaces="matAutocomplete" (optionSelected)="getLatLong($event)">
                         <mat-option *ngFor="let place of places; let i = index" [value]="place.description">{{place.description}}
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <mat-form-field appearance="fill">
                     <mat-label>km</mat-label>
                     <select matNativeControl required>
@@ -41,7 +41,21 @@
                         <option value="saab">Closed</option>
                     </select>
                 </mat-form-field>
+            </div> -->
+            <div class="list-container">
+                <p>Nearest Atms</p>
+                <ul>
+                    <ng-container *ngFor="let location of configData.results ; let i=index">
+                        <li *ngIf="i<10">
+                            <span>
+                                <img src="assets/images/marker.png">
+                            </span>
+                            {{location.name}}</li>
+                    </ng-container>
+
+                </ul>
             </div>
+
             <div class="row">
                 <div class="button-container">
                     <button (click)="refresh()">Refresh</button>

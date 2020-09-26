@@ -27,7 +27,7 @@ export class ShareService {
         // private idle: Idle
     ) { }
 
-    /* api method for creating leads*/
+    /* api method for creating leads https://cors-anywhere.herokuapp.com/*/
     public getPlace(param) {
         return this.http.get('https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + param + '&types=geocode&language=fr&key=AIzaSyBepSqGpxHGCUDJvHf_f9dX99Af2Id75zw')
             .pipe(map(response => this.shareStore.apiResp = response));
