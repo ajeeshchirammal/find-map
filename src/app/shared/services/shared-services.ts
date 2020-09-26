@@ -17,6 +17,7 @@ export class ShareService {
     public idleScreenFlag: boolean = false;
     public subscription: Subscription;
     public toastTimer: any;
+    baseUrl: any
 
     constructor(
         private location: Location,
@@ -25,18 +26,20 @@ export class ShareService {
         public router: Router,
         public activatedRoute: ActivatedRoute,
         // private idle: Idle
-    ) { }
+    ) {
+        this.baseUrl = "https://google-map-server.herokuapp.com/"
+    }
 
     /* api method for creating leads https://cors-anywhere.herokuapp.com/*/
     public getPlace(param) {
-        return this.http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + param + '&types=geocode&language=fr&key=AIzaSyBepSqGpxHGCUDJvHf_f9dX99Af2Id75zw')
+        return this.http.get(this.baseUrl + "autocomplete?input=" + param)
             .pipe(map(response => this.shareStore.apiResp = response));
     }
 
 
     public getLatLong(param) {
 
-        return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + param + '&key=AIzaSyBepSqGpxHGCUDJvHf_f9dX99Af2Id75zw')
+        return this.http.get(this.baseUrl + "address?input=" + param)
             .pipe(map(response => this.shareStore.apiResp = response));
     }
 

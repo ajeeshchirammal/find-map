@@ -15,6 +15,7 @@ export class MapService {
     public idleScreenFlag: boolean = false;
     public subscription: Subscription;
     public toastTimer: any;
+    baseUrl: any
 
     constructor(
         private location: Location,
@@ -22,12 +23,14 @@ export class MapService {
         public shareStore: ShareStore,
         public router: Router,
         public activatedRoute: ActivatedRoute,
-    ) { }
+    ) {
+        this.baseUrl = "https://google-map-server.herokuapp.com/"
+    }
 
 
     public getMap(param) {
 
-        return this.http.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + param.lat + ',' + param.lng + '&radius=1000&types=atm&&key=AIzaSyBepSqGpxHGCUDJvHf_f9dX99Af2Id75zw')
+        return this.http.get(this.baseUrl + "nearbysearch?lat=" + param.lat + "&lng=" + param.lng)
             .pipe(
             map(response => this.shareStore.apiResp = response));
 
@@ -35,7 +38,7 @@ export class MapService {
 
     public getPlace(param) {
 
-        return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + param.lat + ',' + param.lng + '&sensor=true&key=AIzaSyBepSqGpxHGCUDJvHf_f9dX99Af2Id75zw')
+        return this.http.get(this.baseUrl + "latlngAddress?lat=" + param.lat + "&lng=" + param.lng)
             .pipe(
             map(response => this.shareStore.apiResp = response));
 
