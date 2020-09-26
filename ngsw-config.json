@@ -36,7 +36,7 @@
     {
       "name": "restapiexample dummuy API",
       "urls": [
-        "https://maps.googleapis.com/maps/api/**",
+        "https://maps.googleapis.com/maps/api/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",
