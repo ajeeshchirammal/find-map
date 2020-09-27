@@ -16,7 +16,8 @@
         "urls": [
           "https://cdnjs.cloudflare.com/**",
           "https://fonts.googleapis.com/**",
-          "https://maps.googleapis.com/maps/**"
+          "https://maps.googleapis.com/maps/**",
+          "https://google-map-server.herokuapp.com/**"
         ]
       }
     },
@@ -36,7 +37,8 @@
     {
       "name": "restapiexample dummuy API",
       "urls": [
-        "https://maps.googleapis.com/maps/api/**"
+        "https://maps.googleapis.com/maps/api/**",
+        "https://google-map-server.herokuapp.com/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",
