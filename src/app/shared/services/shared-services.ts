@@ -27,7 +27,7 @@ export class ShareService {
         public activatedRoute: ActivatedRoute,
         // private idle: Idle
     ) {
-        this.baseUrl = "https://google-map-server.herokuapp.com/"
+        this.baseUrl = "https://cors-anywhere.herokuapp.com/https://google-map-server.herokuapp.com/"
     }
 
     /* api method for creating leads https://cors-anywhere.herokuapp.com/*/

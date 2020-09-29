@@ -27,7 +27,8 @@ export class LandingComponent implements OnInit {
 			case 'lat':
 				this.map = event;
 				this.mapService.getMap(event).subscribe((response: any) => {
-					this.apiLoaded = response
+					this.apiLoaded = response;
+					this.origin = event;
 					this.apiLoaded["place_name"] = event.name;
 
 				})
@@ -35,7 +36,7 @@ export class LandingComponent implements OnInit {
 			case 'currentLocation':
 				console.log("rec", event)
 				this.map = event;
-				this.origin = event;
+				// this.origin = event;
 				this.mapService.getMap(event).subscribe((response: any) => {
 					this.apiLoaded = response
 					this.mapService.getPlace(event).subscribe((response: any) => {

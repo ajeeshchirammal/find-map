@@ -24,7 +24,7 @@ export class MapService {
         public router: Router,
         public activatedRoute: ActivatedRoute,
     ) {
-        this.baseUrl = "https://google-map-server.herokuapp.com/"
+        this.baseUrl = "https://cors-anywhere.herokuapp.com/https://google-map-server.herokuapp.com/"
     }
 
 
